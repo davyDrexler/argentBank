@@ -1,0 +1,34 @@
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    width: 100%;
+    height: 400px;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        object-position: center; 
+    }
+}
+
+.boxText {
+    width: 300px;
+    background-color: aqua;
+    position: absolute;
+    top: 15%;
+
+    .textZone {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .subtitle {
+            
+        }
+    }
+}

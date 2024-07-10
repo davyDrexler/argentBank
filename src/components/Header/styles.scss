@@ -1,0 +1,29 @@
+.header {
+    width: 100%;
+    padding-left: 2%;
+    display: flex;
+    align-items: center;
+
+    .Logo {
+        img{
+            display: block;
+            width: 50%;
+        }
+    }
+
+    .right_button {
+        display: flex;
+        margin-left: auto;
+        margin-right: 4%;
+        font-size: 20px;
+
+        .icon {
+            margin-right: 0.5rem;
+        }
+        
+        .signin {
+            color: inherit;
+            text-decoration: none;
+        }
+    }
+}
