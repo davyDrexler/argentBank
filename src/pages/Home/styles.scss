@@ -16,9 +16,11 @@
 
 .boxText {
     width: 300px;
-    background-color: aqua;
+    background-color: white;
     position: absolute;
     top: 15%;
+    right: 0;
+    margin-right: 20px;
 
     .textZone {
         width: 100%;
@@ -26,9 +28,10 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+        align-items: center; /* Aligner le texte à gauche */
 
         .subtitle {
-            
+            margin-left: 25px;
         }
     }
 }
