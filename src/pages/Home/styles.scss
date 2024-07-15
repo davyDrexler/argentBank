@@ -20,7 +20,7 @@
     position: absolute;
     top: 15%;
     right: 0;
-    margin-right: 20px;
+    margin-right: 80px;
 
     .textZone {
         width: 100%;
@@ -34,4 +34,8 @@
             margin-left: 25px;
         }
     }
+}
+
+.textIcon {
+    display: flex;
 }

@@ -22,7 +22,7 @@
   position: absolute;
   top: 15%;
   right: 0;
-  margin-right: 20px;
+  margin-right: 80px;
 }
 .boxText .textZone {
   width: 100%;
@@ -34,4 +34,8 @@
 }
 .boxText .textZone .subtitle {
   margin-left: 25px;
+}
+
+.textIcon {
+  display: flex;
 }/*# sourceMappingURL=styles.css.map */

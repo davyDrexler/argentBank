@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* styles.css */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Ajoute de l'espace entre les icônes si nécessaire */
+}
+
+.icon-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.green-circle {
+  max-width: 25%;
+  max-width: 25%;
+  min-height: 130px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #00bc77;
+  border-radius: 50%; /* Corrige pour un cercle parfait */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.green-circle img {
+  width: 60%;
+}
+
+.bottom-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%; /* Ajoute la largeur pour centrer correctement les enfants */
+}
+.bottom-text h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20; /* Supprime les marges par défaut */
+  line-height: 25px;
+}
+.bottom-text p {
+  width: 60%; /* Ajuste la largeur pour que le texte soit centré */
+  margin: 0px; /* Supprime les marges par défaut */
+  font-size: 15px;
+  line-height: 20px;
+}/*# sourceMappingURL=styles.css.map */
