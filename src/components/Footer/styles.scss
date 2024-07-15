@@ -1,0 +1,15 @@
+.foot {
+    width: 100%;
+    border-top-style: solid ;
+    border-top-color: #ccc;
+    border-top-width: 2px;
+
+    .legal-text {
+        display: flex;
+        color: #2c3e50;
+        justify-content: center;
+        text-align: center; /* Centre le texte horizontalement */
+        width: 100%;
+        margin-top: 20px;
+    }
+}

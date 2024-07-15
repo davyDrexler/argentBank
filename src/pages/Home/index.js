@@ -14,8 +14,8 @@ function Home() {
         </div>
         <div className='boxText'>
           <div className='textZone'>
-            <h2>No fees.<br/>No minimum deposit.<br/>High interest rates.</h2>
-            <h3 className='subtitle'>Open a saving account with Argent Bank today</h3>
+            <h2 className='title'>No fees.<br/>No minimum deposit.<br/>High interest rates.</h2>
+            <p className='subtitle'>Open a saving account with Argent Bank today</p>
           </div>
         </div>
         <div className='textIcon'>

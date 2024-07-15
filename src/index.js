@@ -5,6 +5,7 @@ import './index.css';
 import Home from './pages/Home/';
 import Login from './pages/Login';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/login" element={<Login />} />
         {/* <Route path="*" element={<Error />} /> */}
       </Routes>
+      <Footer />
     </Router>
   </React.StrictMode>
 );

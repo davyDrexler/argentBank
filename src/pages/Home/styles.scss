@@ -28,10 +28,15 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        align-items: center; /* Aligner le texte à gauche */
+        align-items: center; 
+
+        .title {
+            font-weight: bold;
+        }
 
         .subtitle {
             margin-left: 25px;
+            font-weight: 100;
         }
     }
 }
