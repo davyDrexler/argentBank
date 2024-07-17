@@ -2,23 +2,25 @@ import React, { useState } from 'react';
 import './styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 function LoginModal() {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // eslint-disable-next-line no-unused-vars
+    const [token, setToken] = useState(null);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Créer un objet avec les informations de connexion
         const loginData = {
-            username: username,
+            email: email,
             password: password,
         };
 
         try {
-            // Envoyer les informations de connexion à l'API
-            const response = await fetch('https://api.example.com/login', {
+            const response = await fetch('http://localhost:3001/api/v1/user/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,18 +28,31 @@ function LoginModal() {
                 body: JSON.stringify(loginData),
             });
 
-            // Vérifier si la requête a réussi
+            console.log('Response received:', response);
+
             if (response.ok) {
                 const data = await response.json();
                 console.log('Login successful:', data);
-                // Gérer la connexion réussie (par exemple, rediriger l'utilisateur)
+
+                // Récupération du token
+                if (data.body && data.body.token) {
+                    setToken(data.body.token);
+                    // Stockage du token dans le localstorage
+                    localStorage.setItem('token', data.body.token);
+                    // affiche le token dans la console 
+                    console.log('Token:', data.body.token);
+
+                    // Rediriger vers la page user après une connexion réussie
+                    navigate('/userpage');
+                } else {
+                    console.log('Aucun token trouvée');
+                }
             } else {
-                console.error('Login failed');
-                // Gérer l'échec de la connexion (par exemple, afficher un message d'erreur)
+                const errorData = await response.json();
+                console.error('Login failed:', errorData);
             }
         } catch (error) {
             console.error('An error occurred:', error);
-            // Gérer les erreurs réseau ou autres
         }
     };
 
@@ -48,12 +63,12 @@ function LoginModal() {
                 <h1 className="title">Sign In</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="username">Username:</label>
+                        <label htmlFor="email">Email:</label>
                         <input
-                            type="text"
-                            id="username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                     </div>

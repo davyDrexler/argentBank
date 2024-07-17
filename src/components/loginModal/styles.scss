@@ -1,29 +1,67 @@
-$primary-color: #12002b;
-
 .white-square {
     width: 300px;
     height: 500px;
     margin-top: 50px;
     background-color: white;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    .user-icon {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centre les éléments horizontalement */
+.user-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .iconLogin {
-            font-size: x-large;
-            margin-top: 50px;
-            color: $primary-color;
-        }
+.iconLogin {
+    font-size: x-large;
+    margin-top: 50px;
+    color: #12002b;
+}
 
-        .title {
-            color: $primary-color;
-            font-size: 22px;
-            font-weight: 600;
-            margin-top: 10px; 
-        }
-    }
+.title {
+    color: #12002b;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 80%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #12002b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0d0024;
 }
