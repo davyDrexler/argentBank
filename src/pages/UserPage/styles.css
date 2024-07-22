@@ -3,4 +3,10 @@
   background-color: #12002b;
   display: flex;
   justify-content: center;
+}
+.userpage .top-text {
+  color: white;
+}
+.userpage .top-text h1 {
+  text-align: center;
 }/*# sourceMappingURL=styles.css.map */

@@ -9,7 +9,9 @@ function Header() {
     return (
         <header className="header">
             <div className='Logo'>
-                <img src={logo} alt="ArgentBank Logo" />
+                <Link to="/">
+                    <img src={logo} alt="ArgentBank Logo" />
+                </Link>
             </div>
             <div className='right_button'>
                 <FontAwesomeIcon className='icon' icon={faCircleUser} />

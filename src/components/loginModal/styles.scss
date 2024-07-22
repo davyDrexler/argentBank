@@ -1,6 +1,6 @@
 .white-square {
     width: 300px;
-    height: 500px;
+    height: 400px;
     margin-top: 50px;
     background-color: white;
     display: flex;
@@ -17,7 +17,6 @@
 
 .iconLogin {
     font-size: x-large;
-    margin-top: 50px;
     color: #12002b;
 }
 
@@ -55,13 +54,9 @@ button {
     width: 80%;
     padding: 10px;
     font-size: 16px;
-    background-color: #12002b;
+    background-color: #00bc77;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #0d0024;
 }
