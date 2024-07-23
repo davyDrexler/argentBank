@@ -64,11 +64,10 @@ function UserPage() {
                 </h1>
             </div>
             <div className='button' onClick={openModal}>
-                <button>Ouvrir la Modal</button>
+                <button>Edit Name</button>
             </div>
             <Modal isOpen={isModalOpen} onClose={closeModal}>
-                <h2>Modal Title</h2>
-                <p>This is the modal content.</p>
+                
             </Modal>
         </div>
     );

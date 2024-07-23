@@ -1,6 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store'; // Make sure to import your configured store
 import './index.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -11,22 +13,24 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route 
-          path="/userpage" 
-          element={
-            <ProtectedRoute>
-              <UserPage />
-            </ProtectedRoute>
-          } 
-        />
-        {/* <Route path="*" element={<Error />} /> */}
-      </Routes>
-      <Footer />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route 
+            path="/userpage" 
+            element={
+              <ProtectedRoute>
+                <UserPage />
+              </ProtectedRoute>
+            } 
+          />
+          {/* <Route path="*" element={<Error />} /> */}
+        </Routes>
+        <Footer />
+      </Router>
+    </Provider>
   </React.StrictMode>
 );
