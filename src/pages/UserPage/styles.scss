@@ -4,13 +4,41 @@ $primary-color: #12002b;
     height: 85vh;
     background-color: $primary-color;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 
     .top-text{
         color: white;
+        display: flex;
+        justify-content: center;
 
         h1 {
             text-align: center;
         }
+    }
+
+    .button_modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .button_open_modal_name {
+            display: flex;
+            justify-content: center;
+            width: 10%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #00bc77;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+
+    .balance {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 50px;
+        flex-direction: column;
     }
 }

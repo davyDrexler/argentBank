@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
 import Modal from '../../components/Modal_change_name';
+import BalanceBox from '../../components/Balance'
 
 function UserPage() {
     const [userData, setUserData] = useState(null);
@@ -63,12 +64,20 @@ function UserPage() {
                     {userData.firstName} {userData.lastName}
                 </h1>
             </div>
-            <div className='button' onClick={openModal}>
-                <button>Edit Name</button>
-            </div>
-            <Modal isOpen={isModalOpen} onClose={closeModal}>
+            <div className='button_modal'>
+                <div className='button_open_modal_name' onClick={openModal}>
+                    <button>Edit Name</button>
+                </div>
+                <Modal isOpen={isModalOpen} onClose={closeModal}>
                 
-            </Modal>
+                </Modal>
+            </div>
+
+            <div className='balance'>
+                <BalanceBox topText="Argent Bank Checking (x8349)" Money="$2,082.79" botText="Available Balance"/>
+                <BalanceBox topText="Argent Bank Checking (x8349)" Money="$2,082.79" botText="Available Balance"/>
+                <BalanceBox topText="Argent Bank Checking (x8349)" Money="$2,082.79" botText="Available Balance"/>
+            </div>
         </div>
     );
 }
