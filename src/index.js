@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store'; // Make sure to import your configured store
+import store from './store';
 import './index.css';
 import Home from './pages/Home';
 import Login from './pages/Login';

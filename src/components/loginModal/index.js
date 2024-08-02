@@ -13,7 +13,7 @@ function LoginModal() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+ 
         const loginData = {
             email: email,
             password: password,
@@ -42,7 +42,7 @@ function LoginModal() {
                     // affiche le token dans la console 
                     console.log('Token:', data.body.token);
 
-                    // Rediriger vers la page user après une connexion réussie
+                    // Rediriger vers la page userpage après une connexion réussie
                     navigate('/userpage');
                 } else {
                     console.log('Aucun token trouvée');

@@ -11,8 +11,12 @@
 .header .right_button {
   display: flex;
   margin-left: auto;
+  align-items: center;
   margin-right: 4%;
   font-size: 20px;
+}
+.header .right_button a {
+  margin-right: 0.5rem;
 }
 .header .right_button .icon {
   margin-right: 0.5rem;

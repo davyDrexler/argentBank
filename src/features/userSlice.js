@@ -1,7 +1,6 @@
-// src/features/userName.js
+// userSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-// Thunk to update user pseudo
 export const updateUserPseudo = createAsyncThunk(
   'user/updateUserPseudo',
   async (newPseudo, { rejectWithValue }) => {
@@ -19,10 +18,8 @@ export const updateUserPseudo = createAsyncThunk(
         throw new Error('Failed to update pseudo');
       }
       const data = await response.json();
-      console.log('Updated pseudo:', data);
       return data.body;
     } catch (error) {
-      console.error('Update pseudo error:', error);
       return rejectWithValue(error.message);
     }
   }
@@ -32,10 +29,19 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     pseudo: '',
+    isAuthenticated: false,
     status: 'idle',
     error: null,
   },
-  reducers: {},
+  reducers: {
+    setAuthenticated: (state, action) => {
+      state.isAuthenticated = action.payload;
+    },
+    logout: (state) => {
+      state.pseudo = '';
+      state.isAuthenticated = false;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(updateUserPseudo.pending, (state) => {
@@ -43,15 +49,16 @@ const userSlice = createSlice({
       })
       .addCase(updateUserPseudo.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.pseudo = action.payload.pseudo;
-        console.log('New state:', state);
+        state.pseudo = action.payload.userName;
+        state.isAuthenticated = true;
       })
       .addCase(updateUserPseudo.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
-        console.log('Update failed:', action.payload);
       });
   },
 });
+
+export const { setAuthenticated, logout } = userSlice.actions;
 
 export default userSlice.reducer;

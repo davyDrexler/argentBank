@@ -14,8 +14,13 @@
     .right_button {
         display: flex;
         margin-left: auto;
+        align-items: center;
         margin-right: 4%;
         font-size: 20px;
+
+        a {
+            margin-right: 0.5rem;
+        }
 
         .icon {
             margin-right: 0.5rem;

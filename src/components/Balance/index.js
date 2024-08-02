@@ -1,12 +1,12 @@
 import React from 'react';
 import './styles.css';
 
-const BalanceBox = ({ topText, Money, botText }) => {
+const BalanceBox = ({ topText, money, botText }) => {
     return (
         <div className="balanceBox">
             <div className='information'>
                 <p className="balance-top-text">{topText}</p>
-                <p className="money">{Money}</p>
+                <p className="money">{money}</p>
                 <p className="bot-text">{botText}</p>
             </div>
             <div className='transaction'>
