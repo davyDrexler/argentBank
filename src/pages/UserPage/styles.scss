@@ -32,6 +32,39 @@ $primary-color: #12002b;
             border-radius: 5px;
             cursor: pointer;
         }
+
+        label {
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                display: flex;
+                color: white;
+                justify-content: center;
+            }
+
+            .modif-box {
+                display: flex;
+                justify-content: center;
+                padding-bottom: 10px;
+                h3 {
+                    color: white;
+                }
+            }
+        }
+
+        .control-editZone-button {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 30%;        
+        }
     }
 
     .balance {

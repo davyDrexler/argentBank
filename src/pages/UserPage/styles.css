@@ -29,6 +29,35 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.userpage .button_modal label {
+  display: flex;
+  flex-direction: column;
+}
+.userpage .button_modal label h2 {
+  display: flex;
+  color: white;
+  justify-content: center;
+}
+.userpage .button_modal label .modif-box {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+.userpage .button_modal label .modif-box h3 {
+  color: white;
+}
+.userpage .button_modal .control-editZone-button {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 30%;
+}
 .userpage .balance {
   display: flex;
   justify-content: center;

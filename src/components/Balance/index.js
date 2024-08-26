@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-const BalanceBox = ({ topText, money, botText }) => {
+const Account = ({ topText, money, botText }) => {
     return (
         <div className="balanceBox">
             <div className='information'>
@@ -16,4 +16,4 @@ const BalanceBox = ({ topText, money, botText }) => {
     );
 }
 
-export default BalanceBox;
+export default Account;

@@ -1,17 +1,17 @@
-// UserPage.js
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './styles.css';
-import Modal from '../../components/Modal_change_name';
-import BalanceBox from '../../components/Balance';
+import Account from '../../components/Balance';
 import { updateUserPseudo, setAuthenticated } from '../../features/userSlice';
 
 function UserPage() {
     const dispatch = useDispatch();
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const { status, error } = useSelector((state) => state.user);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [newPseudo, setNewPseudo] = useState('');
+    const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -35,6 +35,7 @@ function UserPage() {
                     const data = await response.json();
                     setFirstName(data.body.firstName);
                     setLastName(data.body.lastName);
+                    setNewPseudo(data.body.userName);
                     dispatch(updateUserPseudo(data.body.userName));
                     dispatch(setAuthenticated(true));
                 } else {
@@ -49,12 +50,14 @@ function UserPage() {
         fetchUserData();
     }, [dispatch]);
 
-    const openModal = () => {
-        setIsModalOpen(true);
+    const handleEditToggle = () => {
+        setIsEditing(!isEditing);
     };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        dispatch(updateUserPseudo(newPseudo));
+        setIsEditing(false);
     };
 
     if (!firstName || !lastName) {
@@ -70,18 +73,54 @@ function UserPage() {
                 </h1>
             </div>
             <div className='button_modal'>
-                <div className='button_open_modal_name' onClick={openModal}>
-                    <button>Edit Name</button>
-                </div>
-                <Modal isOpen={isModalOpen} onClose={closeModal}>
-                    {/* Contenu du modal ici */}
-                </Modal>
+                {!isEditing ? (
+                    <div className='button_open_modal_name'> 
+                        <button onClick={handleEditToggle}>Edit Name</button>
+                    </div>
+                ) : (
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            <h2>Edit User Info</h2>
+                            <div className='modif-box'>
+                                <h3>User name:</h3>
+                                <input
+                                    type="text"
+                                    value={newPseudo}
+                                    onChange={(e) => setNewPseudo(e.target.value)}
+                                    required
+                                />
+                            </div>
+                            <div className='modif-box'>
+                                <h3>First name:</h3>
+                                <input
+                                    type="text"
+                                    value={firstName}
+                                    disabled 
+                                />
+                            </div>   
+                            <div className='modif-box'>
+                                <h3>Last name:</h3>
+                                <input
+                                    type="text"
+                                    value={lastName}
+                                    disabled 
+                                />
+                            </div>                    
+                        </label>
+                        <div className='control-editZone-button'>
+                            <button type="submit">Submit</button>
+                            <button type="button" onClick={handleEditToggle}>Cancel</button>
+                        </div>
+                        {status === 'loading' && <p>Loading...</p>}
+                        {status === 'failed' && <p>{error}</p>}
+                    </form>
+                )}
             </div>
 
             <div className='balance'>
-                <BalanceBox topText="Argent Bank Checking (x8349)" money="$2,082.79" botText="Available Balance"/>
-                <BalanceBox topText="Argent Bank Checking (x8349)" money="$2,082.79" botText="Available Balance"/>
-                <BalanceBox topText="Argent Bank Checking (x8349)" money="$2,082.79" botText="Available Balance"/>
+                <Account topText="Argent Bank Checking (x8349)" money="$2,082.79" botText="Available Balance"/>
+                <Account topText="Argent Bank Checking (x8349)" money="$2,082.79" botText="Available Balance"/>
+                <Account topText="Argent Bank Checking (x8349)" money="$2,082.79" botText="Available Balance"/>
             </div>
         </div>
     );
