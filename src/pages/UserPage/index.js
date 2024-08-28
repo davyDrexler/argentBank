@@ -108,7 +108,7 @@ function UserPage() {
                             </div>                    
                         </label>
                         <div className='control-editZone-button'>
-                            <button type="submit">Submit</button>
+                            <button type="submit">Save</button>
                             <button type="button" onClick={handleEditToggle}>Cancel</button>
                         </div>
                         {status === 'loading' && <p>Loading...</p>}
