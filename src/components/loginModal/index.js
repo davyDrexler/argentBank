@@ -42,17 +42,27 @@ function LoginModal() {
                     // affiche le token dans la console 
                     console.log('Token:', data.body.token);
 
-                    // Rediriger vers la page userpage après une connexion réussie
+                    // Redirige vers la page userpage après une connexion réussie
                     navigate('/userpage');
                 } else {
-                    console.log('Aucun token trouvée');
+                    console.log('Aucun token trouvé');
                 }
             } else {
                 const errorData = await response.json();
                 console.error('Login failed:', errorData);
+
+                // Vérification de l'erreur 400 et affichage d'une alerte si besoin
+                if (response.status === 400) {
+                    window.alert('Erreur 400: Email ou mot de passe incorrect.');
+                } else if (response.status === 500) {
+                    window.alert(`Erreur: ${errorData.message || 'Erreur 500: Connexion au serveur impossible'}`);
+                } else {
+                    window.alert(`Erreur: ${errorData.message || 'Une erreur est survenue lors de la connexion.'}`);
+                }
             }
         } catch (error) {
             console.error('An error occurred:', error);
+            window.alert('Une erreur est survenue. Veuillez réessayer plus tard.');
         }
     };
 

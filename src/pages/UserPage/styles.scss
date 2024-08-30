@@ -6,7 +6,7 @@ $primary-color: #12002b;
     display: flex;
     flex-direction: column;
 
-    .top-text{
+    .top-text {
         color: white;
         display: flex;
         justify-content: center;
@@ -20,6 +20,7 @@ $primary-color: #12002b;
         display: flex;
         justify-content: center;
         align-items: center;
+        
         .button_open_modal_name {
             display: flex;
             justify-content: center;
@@ -73,5 +74,11 @@ $primary-color: #12002b;
         align-items: center;
         padding-top: 50px;
         flex-direction: column;
+    }
+
+    .error-message {
+        color: red; /* Le texte du message d'erreur sera affiché en rouge */
+        text-align: center; /* Centre le texte du message d'erreur */
+        margin-top: 10px;
     }
 }

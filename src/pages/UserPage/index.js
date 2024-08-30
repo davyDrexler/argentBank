@@ -12,6 +12,7 @@ function UserPage() {
     const [lastName, setLastName] = useState('');
     const [newPseudo, setNewPseudo] = useState('');
     const [isEditing, setIsEditing] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -52,10 +53,18 @@ function UserPage() {
 
     const handleEditToggle = () => {
         setIsEditing(!isEditing);
+        setErrorMessage('');
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        
+        // Validation du pseudo
+        if (newPseudo.length < 2) {
+            setErrorMessage('Username must contain at least 2 characters.');
+            return;
+        }
+
         dispatch(updateUserPseudo(newPseudo));
         setIsEditing(false);
     };
@@ -107,6 +116,7 @@ function UserPage() {
                                 />
                             </div>                    
                         </label>
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <div className='control-editZone-button'>
                             <button type="submit">Save</button>
                             <button type="button" onClick={handleEditToggle}>Cancel</button>
